@@ -1,4 +1,4 @@
-require 'transaction'
+require_relative './transaction'
 
 class Account
 
@@ -17,6 +17,15 @@ class Account
   def withdraw(money)
     raise 'Insufficient Funds' if money > self.balance
     @balance -= money
+    @all_transactions << Transaction.new('withdrawal', -money, self.balance)
+  end
+
+  def statement
+    self.all_transactions.each do |transaction|
+      puts transaction.details
+      puts '_______________'
+    end
+    puts 'Current Balance = ' + self.balance.to_s
   end
 
 end

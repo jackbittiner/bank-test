@@ -33,6 +33,12 @@ describe Account do
         expect(account.balance).to eq (100)
       end
 
+      it 'adds a deposit transaction to the all_transactions array' do
+        account.deposit(500)
+        account.withdraw(400)
+        expect(account.all_transactions.length).to eq (2)
+      end
+
       it 'cannot withdraw money more than the amount in the balance' do
         expect{account.withdraw(100)}.to raise_error 'Insufficient Funds'
       end
