@@ -5,8 +5,12 @@ describe Account do
 
 
   describe 'initialize' do
-      it 'New account has a balance of 0' do
+      it 'has a balance of 0' do
         expect(account.balance).to eq(0)
+      end
+
+      it 'has no transactions' do
+        expect(account.all_transactions).to eq []
       end
     end
   end
