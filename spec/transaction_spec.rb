@@ -1,7 +1,7 @@
 require 'transaction'
 
 describe Transaction do
-  subject(:transaction) {described_class.new('Withdrawal', 1000)}
+  subject(:transaction) {described_class.new('Withdrawal', 1000, 2000)}
 
   describe 'initialize' do
 
@@ -15,6 +15,10 @@ describe Transaction do
 
     it 'is initialized with an amount withdrawn or deposited' do
       expect(transaction.details['amount']).to eq 1000
+    end
+
+    it 'is initialized with the balance at the end of the transaction' do
+      expect(transaction.details['balance']).to eq 2000
     end
   end
 end
