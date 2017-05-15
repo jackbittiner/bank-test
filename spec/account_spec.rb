@@ -19,6 +19,11 @@ describe Account do
         account.deposit(500)
         expect(account.balance).to eq(500)
       end
+
+      it 'adds a deposit transaction to the all_transactions array' do
+        account.deposit(500)
+        expect(account.all_transactions.length).to eq (1)
+      end
     end
 
     describe 'withdraw' do

@@ -1,3 +1,5 @@
+require 'transaction'
+
 class Account
 
   attr_reader :balance, :all_transactions
@@ -9,6 +11,7 @@ class Account
 
   def deposit(money)
     @balance += money
+    @all_transactions << Transaction.new('deposit', money, self.balance)
   end
 
   def withdraw(money)
