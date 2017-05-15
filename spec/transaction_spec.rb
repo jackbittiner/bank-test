@@ -5,7 +5,7 @@ describe Transaction do
 
   describe 'initialize' do
     it 'is created with todays date' do
-      expect(transaction.details['date']).to eq Time.now.strftime("%d/%m/%Y %H:%M")
+      expect(transaction.details['date']).to eq Time.now.strftime("%d/%m/%Y")
     end
   end
 end
